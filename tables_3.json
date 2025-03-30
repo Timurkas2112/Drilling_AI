@@ -1,0 +1,1522 @@
+[
+    {
+        "table": "bha_run",
+        "description": "Журнал работы бурового инструмента (BHA)",
+        "param": {
+            "well_id": "ID скважины",
+            "interval_from/to": "Интервал бурения (м)",
+            "chisel_type/size": "Тип/размер долота",
+            "nnd_min/max/avg": "Мин/макс/средняя нагрузка на долото (тс)",
+            "pressure_min/max": "Давление (атм)",
+            "time_duration_hours": "Продолжительность работы (часы)"
+        },
+        "class": "Техпараметры бурения"
+    },
+    {
+        "table": "auto_drilling_program_stage",
+        "description": "Этапы автоматизированной программы бурения",
+        "param": {
+            "depth_from/to": "Глубина начала/окончания этапа (м)",
+            "type": "Тип этапа (бурение, проходка и т.д.)"
+        },
+        "class": "Управление бурением"
+    },
+    {
+        "table": "auto_drilling_program",
+        "description": "Программы автоматического бурения",
+        "param": {
+            "well_id": "ID скважины",
+            "depth_from/to": "Целевой интервал (м)",
+            "status": "Статус программы"
+        },
+        "class": "Управление бурением"
+    },
+    {
+        "table": "drilling_parameter",
+        "description": "Параметры бурения в реальном времени",
+        "param": {
+            "rop_average": "Средняя скорость проходки (м/ч)",
+            "torque_max": "Максимальный крутящий момент (кН·м)",
+            "rpm_max": "Максимальные обороты (об/мин)"
+        },
+        "class": "Техпараметры бурения"
+    },
+    {
+        "table": "operation",
+        "description": "Журнал операций по скважине",
+        "param": {
+            "operation_type": "Тип операции (бурение, спуск и т.д.)",
+            "start_depth": "Глубина начала (м)",
+            "duration": "Длительность (часы)"
+        },
+        "class": "Мониторинг"
+    },
+    {
+        "table": "chisel_working_off",
+        "description": "Отработка долот",
+        "param": {
+            "mechanical_speed": "Механическая скорость (м/ч)",
+            "rise_reason": "Причина подъема (износ, авария)"
+        },
+        "class": "Инструмент"
+    },
+    {
+        "table": "drilling_liquor_movements",
+        "description": "Учет движения бурового раствора",
+        "param": {
+            "volume_start/end": "Объем раствора на начало/конец (м³)",
+            "absorbed": "Поглощения (м³)"
+        },
+        "class": "Буровые растворы"
+    },
+    {
+        "table": "day_information",
+        "description": "Суточная сводка по скважине",
+        "param": {
+            "temperature_min/max": "Температура (°C)",
+            "next_day_plan": "План работ"
+        },
+        "class": "Отчетность"
+    },
+    {
+        "table": "ggd_fact",
+        "description": "Фактические данные ГГД (гидродинамических исследований)",
+        "param": {
+            "rop": "Скорость проходки (м/ч)",
+            "bottomhole": "Забойные условия"
+        },
+        "class": "ГИС"
+    },
+    {
+        "table": "ggd_elements",
+        "description": "Элементы ГГД-исследований",
+        "param": {
+            "work_type": "Тип работы (испытание, опрессовка)",
+            "msp": "Забойное давление (атм)"
+        },
+        "class": "ГИС"
+    },
+    {
+        "table": "incidents",
+        "description": "Инциденты при бурении",
+        "param": {
+            "start_depth": "Глубина начала инцидента (м)",
+            "taken_action": "Принятые меры"
+        },
+        "class": "Аварии"
+    },
+    {
+        "table": "regulation",
+        "description": "Нормативы бурения",
+        "param": {
+            "drilling_time_per_meter": "Норма времени на метр (часы)",
+            "spo_standard_for_interval_in_hours": "Норма СПО на интервал"
+        },
+        "class": "Нормативы"
+    },
+    {
+        "table": "technical_maintenance_work",
+        "description": "Техническое обслуживание",
+        "param": {
+            "duration_hours": "Длительность ТО (часы)",
+            "status": "Статус (выполнено/запланировано)"
+        },
+        "class": "Оборудование"
+    },
+    {
+        "table": "well_calendar_schedule",
+        "description": "Календарный график строительства скважины",
+        "param": {
+            "start_plan/end_plan": "Плановые даты начала/окончания",
+            "days_count_plan": "Плановая продолжительность (дни)"
+        },
+        "class": "Планирование"
+    },
+    {
+        "table": "well_calendar_schedule_item",
+        "description": "Пункты календарного графика",
+        "param": {
+            "casing_column": "Обсадная колонна",
+            "assimilation_work_category": "Категория работ"
+        },
+        "class": "Планирование"
+    },
+    {
+        "table": "well_construction_plan",
+        "description": "План конструкции скважины",
+        "param": {
+            "open_hole_diameter": "Диаметр ствола (мм)",
+            "cement_slurry_lifting_height_from/to": "Интервал цементирования (м)"
+        },
+        "class": "Проектные данные"
+    },
+    {
+        "table": "well_construction_actual",
+        "description": "Фактические данные по конструкции скважины",
+        "param": {
+            "casing_lowering_interval_from/to": "Интервал спуска колонны (м)",
+            "mkd": "Измеренная глубина (м)"
+        },
+        "class": "Мониторинг"
+    },
+    {
+        "table": "well_drilling_plan_templates",
+        "description": "Шаблоны программ бурения",
+        "param": {
+            "well_type": "Тип скважины (вертикальная/горизонтальная)",
+            "content": "Содержание шаблона"
+        },
+        "class": "Управление бурением"
+    },
+    {
+        "table": "well_introductory",
+        "description": "Вводные данные по скважине",
+        "param": {
+            "date_plan/fact": "Плановая/фактическая дата ввода",
+            "version": "Версия данных"
+        },
+        "class": "Администрирование"
+    },
+    {
+        "table": "well_status_historic",
+        "description": "История статусов скважины",
+        "param": {
+            "status": "Статус (бурение, консервация)",
+            "status_date": "Дата изменения"
+        },
+        "class": "Мониторинг"
+    },
+    {
+        "table": "work_of_special_technic",
+        "description": "Работа спецтехники",
+        "param": {
+            "vehicle_name": "Тип техники",
+            "quantity": "Количество единиц"
+        },
+        "class": "Логистика"
+    },
+    {
+        "table": "auto_drilling_asb_drm",
+        "description": "Параметры автоматического бурения (ASB/DRM)",
+        "param": {
+            "manipulation_name": "Тип операции",
+            "depth_start/end": "Интервал воздействия (м)"
+        },
+        "class": "Управление бурением"
+    },
+    {
+        "table": "auto_drilling_program_operation",
+        "description": "Операции в программе автоматического бурения",
+        "param": {
+            "type": "Тип операции",
+            "params": "Параметры выполнения"
+        },
+        "class": "Управление бурением"
+    },
+    {
+        "table": "drilling_rig",
+        "description": "Буровые установки",
+        "param": {
+            "rig_type": "Тип установки (например, 'LAND', 'OFFSHORE')",
+            "lifting_capacity": "Грузоподъемность (тонны)",
+            "manufacture_year": "Год изготовления",
+            "serial_number": "Серийный номер"
+        },
+        "class": "Основное оборудование"
+    },
+    {
+        "table": "drilling_rig_equipment",
+        "description": "Компоненты буровой установки",
+        "param": {
+            "type": "Тип оборудования (насос, лебедка и т.д.)",
+            "model": "Модель оборудования",
+            "permitted_service_life": "Разрешенный срок службы (часы)"
+        },
+        "class": "Основное оборудование"
+    },
+    {
+        "table": "equipmentbi",
+        "description": "Бурильные трубы (БИ)",
+        "param": {
+            "outer_diameter": "Наружный диаметр (мм)",
+            "inner_diameter": "Внутренний диаметр (мм)",
+            "weight": "Вес (кг/м)"
+        },
+        "class": "Бурильный инструмент"
+    },
+    {
+        "table": "chisel_program",
+        "description": "Программа работы долот",
+        "param": {
+            "chisel_type": "Тип долота (например, 'PDC', 'Tricone')",
+            "axial_load": "Осевая нагрузка (тонны)",
+            "mechanical_speed": "Механическая скорость бурения (м/ч)"
+        },
+        "class": "Бурильный инструмент"
+    },
+    {
+        "table": "knbk",
+        "description": "Компоновки низа бурильной колонны",
+        "param": {
+            "outer_diameter": "Наружный диаметр (мм)",
+            "steel_grade": "Марка стали",
+            "weight_per_linear_meter": "Вес погонного метра (кг/м)"
+        },
+        "class": "Бурильный инструмент"
+    },
+    {
+        "table": "knbk_fact_entity",
+        "description": "Фактические данные КНБК",
+        "param": {
+            "knbk_element": "Элемент КНБК",
+            "length": "Длина (м)",
+            "max_diameter": "Максимальный диаметр (мм)"
+        },
+        "class": "Бурильный инструмент"
+    },
+    {
+        "table": "knbk_plan_entity",
+        "description": "Плановые данные КНБК",
+        "param": {
+            "knbk_element": "Элемент КНБК",
+            "length": "Длина (м)",
+            "outer_diameter": "Наружный диаметр (мм)"
+        },
+        "class": "Бурильный инструмент"
+    },
+    {
+        "table": "casing_column_descent_protocol_elements",
+        "description": "Элементы протокола спуска обсадных колонн",
+        "param": {
+            "type": "Тип элемента (труба, муфта и т.д.)",
+            "length": "Длина (м)",
+            "installation_depth_from/to": "Глубина установки от/до (м)"
+        },
+        "class": "Обсадные колонны"
+    },
+    {
+        "table": "casing_column_descent_protocol_groups",
+        "description": "Группы обсадных колонн",
+        "param": {
+            "casing_column": "Тип обсадной колонны",
+            "casing_column_diameter": "Диаметр колонны (мм)"
+        },
+        "class": "Обсадные колонны"
+    },
+    {
+        "table": "column_brasings",
+        "description": "Данные о браковке обсадных труб",
+        "param": {
+            "first_casing_pipe_type": "Тип первой трубы",
+            "first_casing_pipe_decommissioning_length": "Длина забракованного участка (м)"
+        },
+        "class": "Обсадные колонны"
+    },
+    {
+        "table": "equipment_catching",
+        "description": "Ловильное оборудование",
+        "param": {
+            "name": "Наименование оборудования",
+            "outer_diameter": "Наружный диаметр (мм)",
+            "connecting_thread": "Тип резьбы"
+        },
+        "class": "Аварийное оборудование"
+    },
+    {
+        "table": "stowage_registers",
+        "description": "Регистры складирования труб",
+        "param": {
+            "pipe_length_with_thread": "Длина трубы с резьбой (м)",
+            "certificate_number": "Номер сертификата"
+        },
+        "class": "Учет оборудования"
+    },
+    {
+        "table": "kpo_descent_protocol_elements",
+        "description": "Элементы протокола спуска КПО",
+        "param": {
+            "name": "Наименование элемента",
+            "length": "Длина (м)",
+            "weight": "Вес (кг)"
+        },
+        "class": "Колонные головки"
+    },
+    {
+        "table": "kpo_descent_protocol_groups",
+        "description": "Группы КПО",
+        "param": {
+            "layout_type": "Тип компоновки",
+            "well_construction_stage": "Этап строительства скважины"
+        },
+        "class": "Колонные головки"
+    },
+    {
+        "table": "kpo_stowage_registers",
+        "description": "Регистры складирования КПО",
+        "param": {
+            "rack_number": "Номер стеллажа",
+            "certificate_number": "Номер сертификата"
+        },
+        "class": "Колонные головки"
+    },
+    {
+        "table": "nci_casing_equipment",
+        "description": "Справочник оборудования обсадных колонн",
+        "param": {
+            "value": "Наименование оборудования"
+        },
+        "class": "Справочники"
+    },
+    {
+        "table": "nci_casing_column_equipment_element",
+        "description": "Справочник элементов обсадных колонн",
+        "param": {
+            "type": "Тип элемента",
+            "value": "Наименование"
+        },
+        "class": "Справочники"
+    },
+    {
+        "table": "nci_knbk_elements",
+        "description": "Справочник элементов КНБК",
+        "param": {
+            "type": "Тип элемента",
+            "value": "Наименование",
+            "outer_diameter": "Наружный диаметр (мм)"
+        },
+        "class": "Справочники"
+    },
+    {
+        "table": "cement_bridges",
+        "description": "Данные о цементных мостах",
+        "param": {
+            "cement_bridge_mounting_depth_from/to": "Глубина установки моста (м)",
+            "lightweight_cement_volume": "Объем легкого цемента (м³)",
+            "heavy_cement_volume": "Объем тяжелого цемента (м³)",
+            "mounting_duration": "Время установки (часы)"
+        },
+        "class": "Цементирование"
+    },
+    {
+        "table": "column_brasings",
+        "description": "Браковка обсадных колонн",
+        "param": {
+            "first_casing_pipe_type": "Тип первой трубы",
+            "first_casing_pipe_decommissioning_length": "Длина забракованного участка (м)",
+            "actual_shoe_installation_depth": "Фактическая глубина установки башмака (м)"
+        },
+        "class": "Контроль качества"
+    },
+    {
+        "table": "casing_column_descent_protocol_elements",
+        "description": "Элементы обсадных колонн",
+        "param": {
+            "type": "Тип элемента (труба, муфта и т.д.)",
+            "length": "Длина элемента (м)",
+            "installation_depth_from/to": "Глубина установки (м)"
+        },
+        "class": "Обсадные колонны"
+    },
+    {
+        "table": "casing_column_descent_protocol_groups",
+        "description": "Группы обсадных колонн",
+        "param": {
+            "casing_column": "Тип колонны (кондуктор, эксплуатационная и т.д.)",
+            "casing_column_diameter": "Диаметр колонны (мм)"
+        },
+        "class": "Обсадные колонны"
+    },
+    {
+        "table": "casing_column_descent_protocol_casing_stab",
+        "description": "Стабилизаторы обсадных колонн",
+        "param": {
+            "casing_stab_id": "ID стабилизатора",
+            "casing_column_descent_protocol_id": "ID протокола спуска"
+        },
+        "class": "Вспомогательные элементы"
+    },
+    {
+        "table": "cement_chemical_reagents_consumptions",
+        "description": "Расход реагентов при цементировании",
+        "param": {
+            "name": "Наименование реагента",
+            "expense_per_day": "Расход в сутки (кг)",
+            "balance": "Остаток (кг)"
+        },
+        "class": "Материалы"
+    },
+    {
+        "table": "fastening_project",
+        "description": "Проект крепления ствола",
+        "param": {
+            "casing_column_diameter": "Диаметр колонны (мм)",
+            "open_hole_diameter": "Диаметр ствола (мм)",
+            "buffer_liquid_density": "Плотность буферной жидкости (г/см³)"
+        },
+        "class": "Проектные данные"
+    },
+    {
+        "table": "fastening_reagents_consumption_fact",
+        "description": "Фактический расход реагентов",
+        "param": {
+            "name": "Наименование реагента",
+            "expense_per_day": "Расход в сутки (кг)",
+            "casing_column": "Тип обсадной колонны"
+        },
+        "class": "Материалы"
+    },
+    {
+        "table": "fastening_reagents_consumption_normative",
+        "description": "Нормативы расхода реагентов",
+        "param": {
+            "name": "Наименование реагента",
+            "value": "Норматив расхода (кг/м)"
+        },
+        "class": "Нормативы"
+    },
+    {
+        "table": "project_equipment",
+        "description": "Оборудование для крепления по проекту",
+        "param": {
+            "outer_diameter": "Наружный диаметр (мм)",
+            "weight": "Вес (кг)",
+            "count": "Количество"
+        },
+        "class": "Проектные данные"
+    },
+    {
+        "table": "project_well_construction",
+        "description": "Проектные данные конструкции скважины",
+        "param": {
+            "cement_slurry_lifting_height_from/to": "Интервал цементирования (м)",
+            "cavernosity_coefficient": "Коэффициент кавернозности"
+        },
+        "class": "Проектные данные"
+    },
+    {
+        "table": "well_construction_plan",
+        "description": "План конструкции скважины",
+        "param": {
+            "open_hole_diameter": "Диаметр ствола (мм)",
+            "threaded_connection_type": "Тип резьбового соединения"
+        },
+        "class": "Планирование"
+    },
+    {
+        "table": "liquors_actual",
+        "description": "Фактические параметры бурового раствора",
+        "param": {
+            "density": "Плотность (г/см³)",
+            "viscosity": "Вязкость (сПз)",
+            "ph": "Водородный показатель (pH)",
+            "electrical_stability": "Электрическая стабильность (В)",
+            "solid_phase": "Содержание твердой фазы (%)"
+        },
+        "class": "Мониторинг параметров"
+    },
+    {
+        "table": "liquors_plan",
+        "description": "Плановые параметры бурового раствора",
+        "param": {
+            "density_min/max": "Минимальная/максимальная плотность (г/см³)",
+            "viscosity_min/max": "Минимальная/максимальная вязкость (сПз)",
+            "filtration": "Фильтрация (мл/30 мин)"
+        },
+        "class": "Планирование"
+    },
+    {
+        "table": "drilling_liquor_movements",
+        "description": "Учет движения бурового раствора",
+        "param": {
+            "volume_start/end": "Объем на начало/конец периода (м³)",
+            "prepared_volume": "Приготовленный объем (м³)",
+            "absorbed": "Объем поглощений (м³)"
+        },
+        "class": "Логистика"
+    },
+    {
+        "table": "chemical_reagents_consumption",
+        "description": "Расход химических реагентов",
+        "param": {
+            "name": "Наименование реагента",
+            "expense_per_day": "Суточный расход (кг)",
+            "balance": "Остаток (кг)"
+        },
+        "class": "Материалы"
+    },
+    {
+        "table": "project_liquor_requirement",
+        "description": "Потребность в растворе по проекту",
+        "param": {
+            "required_amount_per_interval": "Требуемый объем на интервал (м³)",
+            "probable_liquor_losses": "Прогнозируемые потери (м³)"
+        },
+        "class": "Проектные данные"
+    },
+    {
+        "table": "project_liquors_plan",
+        "description": "Проектные параметры раствора",
+        "param": {
+            "liquor_type": "Тип раствора (например, 'Полимерный')",
+            "water_yield": "Водоотдача (мл)"
+        },
+        "class": "Проектные данные"
+    },
+    {
+        "table": "technical_water",
+        "description": "Учет технической воды",
+        "param": {
+            "income_per_day": "Поступление за сутки (м³)",
+            "expense_pump_into_well": "Расход на закачку в скважину (м³)"
+        },
+        "class": "Ресурсы"
+    },
+    {
+        "table": "nci_liquor_types",
+        "description": "Справочник типов буровых растворов",
+        "param": {
+            "value": "Тип раствора (например, 'На углеводородной основе')"
+        },
+        "class": "Справочники"
+    },
+    {
+        "table": "geology",
+        "description": "Геологические данные скважины",
+        "param": {
+            "core_sample_interval": "Интервал отбора керна (м)",
+            "horizon": "Горизонт",
+            "target_formation": "Целевой пласт",
+            "expected_pressure": "Ожидаемое давление (атм)"
+        },
+        "class": "Геология"
+    },
+    {
+        "table": "geological_journal",
+        "description": "Геологический журнал",
+        "param": {
+            "bottomhole_pressure": "Забойное давление (атм)",
+            "gas_debit_by_dict": "Дебит газа по диафрагме (м³/сут)",
+            "liquid_debit_by_separator": "Дебит жидкости по сепаратору (м³/сут)"
+        },
+        "class": "ГИС"
+    },
+    {
+        "table": "project_geology",
+        "description": "Проектные геологические данные",
+        "param": {
+            "angle": "Угол наклона (град)",
+            "azimuth": "Азимут (град)",
+            "lithology_description": "Литологическое описание"
+        },
+        "class": "Проектные данные"
+    },
+    {
+        "table": "knbk_gis_groups",
+        "description": "Группы ГИС для КНБК",
+        "param": {
+            "research_type": "Тип исследования (каротаж, испытание)",
+            "research_interval_from/to": "Интервал исследования (м)"
+        },
+        "class": "ГИС"
+    },
+    {
+        "table": "knbk_gis_elements",
+        "description": "Элементы ГИС для КНБК",
+        "param": {
+            "type": "Тип прибора",
+            "diameter": "Диаметр прибора (мм)"
+        },
+        "class": "ГИС"
+    },
+    {
+        "table": "project_field_and_geophysical_research",
+        "description": "Полевые и геофизические исследования",
+        "param": {
+            "type": "Тип исследования",
+            "scale": "Масштаб"
+        },
+        "class": "ГИС"
+    },
+    {
+        "table": "ggd_fact",
+        "description": "Фактические данные ГГД",
+        "param": {
+            "rop": "Скорость проходки (м/ч)",
+            "bottomhole": "Забойные условия"
+        },
+        "class": "Гидродинамика"
+    },
+    {
+        "table": "ggd_elements",
+        "description": "Элементы ГГД",
+        "param": {
+            "work_type": "Тип работы",
+            "msp": "Забойное давление (атм)"
+        },
+        "class": "Гидродинамика"
+    },
+    {
+        "table": "ggd_plan_tree",
+        "description": "Плановые работы ГГД",
+        "param": {
+            "title": "Наименование работы",
+            "type": "Тип (испытание, опрессовка)"
+        },
+        "class": "Планирование"
+    },
+    {
+        "table": "ggd_template",
+        "description": "Шаблоны ГГД",
+        "param": {
+            "work_category": "Категория работ",
+            "work_type": "Тип работ"
+        },
+        "class": "Шаблоны"
+    },
+    {
+        "table": "nci_lithology",
+        "description": "Справочник литологии",
+        "param": {
+            "value": "Тип породы",
+            "category": "Категория"
+        },
+        "class": "Справочники"
+    },
+    {
+        "table": "nci_podsvita",
+        "description": "Справочник подстилающих пластов",
+        "param": {
+            "value": "Наименование"
+        },
+        "class": "Справочники"
+    },
+    {
+        "table": "nci_svita",
+        "description": "Справочник свит",
+        "param": {
+            "value": "Наименование свиты"
+        },
+        "class": "Справочники"
+    },
+    {
+        "table": "nci_wireline_logs_type",
+        "description": "Типы каротажных исследований",
+        "param": {
+            "value": "Тип каротажа"
+        },
+        "class": "Справочники"
+    },
+    {
+        "table": "calendar_schedule",
+        "description": "Календарный график работ",
+        "param": {
+            "drilling_start_plan/fact": "План/факт начала бурения",
+            "assimilation_plan_days_count": "Плановая продолжительность освоения (дни)"
+        },
+        "class": "Графики"
+    },
+    {
+        "table": "well_calendar_schedule",
+        "description": "Календарный график по скважине",
+        "param": {
+            "construction_cycle": "Цикл строительства",
+            "days_count_plan": "Плановая продолжительность (дни)"
+        },
+        "class": "Графики"
+    },
+    {
+        "table": "drilling_plans",
+        "description": "Планы бурения",
+        "param": {
+            "title": "Наименование плана"
+        },
+        "class": "Планы"
+    },
+    {
+        "table": "drilling_plan_revisions",
+        "description": "Ревизии планов бурения",
+        "param": {
+            "title": "Наименование ревизии",
+            "drilling_plan_id": "Ссылка на план"
+        },
+        "class": "Планы"
+    },
+    {
+        "table": "well_field_plans",
+        "description": "Планы месторождений",
+        "param": {
+            "title": "Наименование",
+            "drilling_plan_revision_id": "Ссылка на ревизию"
+        },
+        "class": "Планы"
+    },
+    {
+        "table": "well_pad_plans",
+        "description": "Планы кустовых площадок",
+        "param": {
+            "drilling_company": "Буровая компания",
+            "drilling_date_start": "Дата начала бурения"
+        },
+        "class": "Планы"
+    },
+    {
+        "table": "well_plans",
+        "description": "Планы по скважинам",
+        "param": {
+            "wellprofile_type": "Тип профиля скважины",
+            "drilling_date_start": "Дата начала бурения"
+        },
+        "class": "Планы"
+    },
+    {
+        "table": "well_drilling_plan_templates",
+        "description": "Шаблоны планов бурения",
+        "param": {
+            "well_type": "Тип скважины",
+            "content": "Содержание шаблона"
+        },
+        "class": "Шаблоны"
+    },
+    {
+        "table": "well_pad_plan_drilling_templates",
+        "description": "Шаблоны планов для кустовых площадок",
+        "param": {
+            "title": "Наименование шаблона"
+        },
+        "class": "Шаблоны"
+    },
+    {
+        "table": "duration_development",
+        "description": "Нормативы продолжительности работ",
+        "param": {
+            "operation_type": "Тип операции",
+            "duration": "Норматив времени (дни)"
+        },
+        "class": "Нормативы"
+    },
+    {
+        "table": "regulation",
+        "description": "Технологические нормативы",
+        "param": {
+            "drilling_time_per_meter": "Норма времени на метр (часы)",
+            "spo_standard_for_interval_in_hours": "Норма СПО на интервал (часы)"
+        },
+        "class": "Нормативы"
+    },
+    {
+        "table": "chemical_reagents_consumption",
+        "description": "Расход химических реагентов",
+        "param": {
+            "name": "Наименование реагента",
+            "expense_per_day": "Суточный расход (кг)",
+            "balance": "Остаток (кг)"
+        },
+        "class": "Учет"
+    },
+    {
+        "table": "chemical_reagents_needs",
+        "description": "Потребность в реагентах",
+        "param": {
+            "reagent_name": "Наименование",
+            "total": "Общая потребность (кг)"
+        },
+        "class": "Планирование"
+    },
+    {
+        "table": "cement_chemical_reagents_consumptions",
+        "description": "Расход реагентов для цементирования",
+        "param": {
+            "name": "Наименование",
+            "expense_per_section": "Расход на интервал (кг)"
+        },
+        "class": "Учет"
+    },
+    {
+        "table": "chemical_reagent_consumption_for_development",
+        "description": "Расход реагентов при освоении",
+        "param": {
+            "reagent_name": "Наименование",
+            "flow_rate": "Расход (кг/сут)"
+        },
+        "class": "Учет"
+    },
+    {
+        "table": "project_chemical_reagents_need",
+        "description": "Проектная потребность в реагентах",
+        "param": {
+            "chemistry_title": "Наименование химиката",
+            "demands_of_components": "Требуемое количество (кг)"
+        },
+        "class": "Проектные данные"
+    },
+    {
+        "table": "fastening_reagents_consumption_fact",
+        "description": "Фактический расход реагентов для крепления",
+        "param": {
+            "name": "Наименование",
+            "expense_per_day": "Суточный расход (кг)"
+        },
+        "class": "Учет"
+    },
+    {
+        "table": "fastening_reagents_consumption_normative",
+        "description": "Нормативы расхода реагентов",
+        "param": {
+            "name": "Наименование",
+            "value": "Норма расхода (кг/м)"
+        },
+        "class": "Нормативы"
+    },
+    {
+        "table": "nci_fastening_reagent_names",
+        "description": "Справочник наименований реагентов",
+        "param": {
+            "value": "Наименование",
+            "type": "Тип реагента"
+        },
+        "class": "Справочники"
+    },
+    {
+        "table": "nci_chemical_titles",
+        "description": "Справочник химических составов",
+        "param": {
+            "value": "Наименование",
+            "type": "Тип химиката"
+        },
+        "class": "Справочники"
+    },
+    {
+        "table": "incidents",
+        "description": "Регистрация инцидентов при бурении",
+        "param": {
+            "start_depth": "Глубина начала инцидента (м)",
+            "end_depth": "Глубина окончания инцидента (м)",
+            "taken_action": "Принятые меры",
+            "status": "Статус (устранено/в работе)"
+        },
+        "class": "Аварийные ситуации"
+    },
+    {
+        "table": "journal_ot_pb_oos",
+        "description": "Журнал нарушений ОТ, ПБ и ООС",
+        "param": {
+            "type_violation": "Тип нарушения",
+            "is_eliminated": "Факт устранения",
+            "link_to_regulatory_document": "Ссылка на нормативный документ"
+        },
+        "class": "Охрана труда"
+    },
+    {
+        "table": "incident_guilty_side",
+        "description": "Виновные стороны инцидентов",
+        "param": {
+            "incident_id": "ID инцидента",
+            "contractor_id": "ID подрядчика"
+        },
+        "class": "Ответственные лица"
+    },
+    {
+        "table": "incident_service_type",
+        "description": "Типы сервисов для устранения инцидентов",
+        "param": {
+            "incident_id": "ID инцидента",
+            "service_type_id": "ID типа сервиса"
+        },
+        "class": "Классификация"
+    },
+    {
+        "table": "supervising_violation",
+        "description": "Нараушения при надзоре",
+        "param": {
+            "work_stage": "Этап работ",
+            "committed_violation_organisation": "Организация-нарушитель"
+        },
+        "class": "Надзор"
+    },
+    {
+        "table": "nci_npv_incident_kinds",
+        "description": "Справочник видов инцидентов НПВ",
+        "param": {
+            "value": "Вид инцидента"
+        },
+        "class": "Справочники"
+    },
+    {
+        "table": "nci_hse_event_type",
+        "description": "Типы событий HSE",
+        "param": {
+            "code": "Код события",
+            "value": "Описание"
+        },
+        "class": "Справочники"
+    },
+    {
+        "table": "drilling_waste",
+        "description": "Учет буровых отходов",
+        "param": {
+            "fact_bsh": "Фактический объем бурового шлама (м³)",
+            "plan_jfob": "Плановый объем ЖФОБ (м³)",
+            "ttn_waste_transfer": "Номер ТТН на передачу отходов"
+        },
+        "class": "Отходы бурения"
+    },
+    {
+        "table": "waste_generation_accounting",
+        "description": "Учет образования отходов",
+        "param": {
+            "act_number": "Номер акта",
+            "fact_tfob": "Фактический объем ТФОБ (м³)",
+            "liquor_type": "Тип бурового раствора"
+        },
+        "class": "Отходы бурения"
+    },
+    {
+        "table": "env_group",
+        "description": "Группы экологических нормативов",
+        "param": {
+            "name": "Наименование группы",
+            "is_actual": "Актуальность"
+        },
+        "class": "Нормативы"
+    },
+    {
+        "table": "env_elements",
+        "description": "Элементы экологических нормативов",
+        "param": {
+            "work_type": "Вид работ",
+            "duration": "Норма времени (часы)",
+            "unit": "Единица измерения"
+        },
+        "class": "Нормативы"
+    },
+    {
+        "table": "nci_env_work_standard",
+        "description": "Стандарты экологических работ",
+        "param": {
+            "value": "Наименование стандарта",
+            "duration": "Норма времени (часы)"
+        },
+        "class": "Справочники"
+    },
+    {
+        "table": "crew",
+        "description": "Состав бригад",
+        "param": {
+            "full_name": "ФИО сотрудника",
+            "job_title": "Должность",
+            "organization": "Организация"
+        },
+        "class": "Персонал"
+    },
+    {
+        "table": "contract",
+        "description": "Договоры с подрядчиками",
+        "param": {
+            "name": "Наименование договора"
+        },
+        "class": "Подрядчики"
+    },
+    {
+        "table": "common_report_information",
+        "description": "Общая информация по отчетам",
+        "param": {
+            "customer": "Заказчик",
+            "drilling_contractor": "Буровой подрядчик",
+            "supervision_contractor": "Подрядчик по надзору"
+        },
+        "class": "Подрядчики"
+    },
+    {
+        "table": "common_report_information_general_contractor_representative",
+        "description": "Представители генерального подрядчика",
+        "param": {
+            "common_report_information_id": "ID отчета",
+            "contractor_id": "ID подрядчика"
+        },
+        "class": "Подрядчики"
+    },
+    {
+        "table": "users",
+        "description": "Пользователи системы",
+        "param": {
+            "username": "Логин",
+            "organization": "Организация",
+            "role_old": "Роль в системе"
+        },
+        "class": "Персонал"
+    },
+    {
+        "table": "nci_contractor",
+        "description": "Справочник подрядчиков",
+        "param": {
+            "value": "Наименование подрядчика"
+        },
+        "class": "Справочники"
+    },
+    {
+        "table": "trajectory_group",
+        "description": "Группы траекторий скважин",
+        "param": {
+            "type": "Тип траектории (проектная/фактическая)",
+            "wellbore": "Номер ствола",
+            "revision": "Ревизия траектории"
+        },
+        "class": "Траектория"
+    },
+    {
+        "table": "trajectory_elements",
+        "description": "Элементы траектории",
+        "param": {
+            "po_depth": "Глубина по стволу (м)",
+            "zenith_angle": "Зенитный угол (град)",
+            "azimuth": "Азимут (град)",
+            "vertical_depth": "Вертикальная глубина (м)"
+        },
+        "class": "Траектория"
+    },
+    {
+        "table": "markscheider_info",
+        "description": "Маркшейдерские данные",
+        "param": {
+            "altitude": "Отметка устья (м)",
+            "total_correction": "Суммарная поправка",
+            "wellhead_coordinates_offset": "Смещение устья (м)"
+        },
+        "class": "Маркшейдерия"
+    },
+    {
+        "table": "nci_trajectory_type",
+        "description": "Справочник типов траекторий",
+        "param": {
+            "value": "Тип (вертикальная/наклонно-направленная/горизонтальная)"
+        },
+        "class": "Справочники"
+    },
+    {
+        "table": "fuel",
+        "description": "Учет топлива",
+        "param": {
+            "fuel_type": "Тип топлива",
+            "expense": "Расход (л)",
+            "on_end_of_day": "Остаток на конец дня (л)"
+        },
+        "class": "Топливо"
+    },
+    {
+        "table": "mtr_consumption",
+        "description": "Расход материально-технических ресурсов",
+        "param": {
+            "name": "Наименование МТР",
+            "expense_per_day": "Суточный расход",
+            "balance": "Остаток"
+        },
+        "class": "МТР"
+    },
+    {
+        "table": "mtr_plan",
+        "description": "План потребления МТР",
+        "param": {
+            "name": "Наименование МТР",
+            "mtr_consumption_plan": "Плановый объем"
+        },
+        "class": "Планирование"
+    },
+    {
+        "table": "mtr_input_control",
+        "description": "Входной контроль МТР",
+        "param": {
+            "name_mtr": "Наименование",
+            "compliance_with_project_documentation": "Соответствие проекту"
+        },
+        "class": "Контроль"
+    },
+    {
+        "table": "vmr_fuel",
+        "description": "Учет топлива для ВМР",
+        "param": {
+            "fuel_name": "Тип топлива",
+            "total_vmr_time": "Общее время работы (часы)",
+            "work_per_shift": "Расход за смену (л)"
+        },
+        "class": "Топливо"
+    },
+    {
+        "table": "nci_fuel_types",
+        "description": "Справочник типов топлива",
+        "param": {
+            "value": "Тип топлива",
+            "unit": "Единица измерения"
+        },
+        "class": "Справочники"
+    },
+    {
+        "table": "nci_mtr_name",
+        "description": "Справочник наименований МТР",
+        "param": {
+            "value": "Наименование",
+            "unit": "Единица измерения"
+        },
+        "class": "Справочники"
+    },
+    {
+        "table": "project",
+        "description": "Основные данные проекта",
+        "param": {
+            "name": "Наименование проекта",
+            "field": "Месторождение",
+            "well_depth": "Проектная глубина скважины (м)"
+        },
+        "class": "Основные данные"
+    },
+    {
+        "table": "project_common_information",
+        "description": "Общая информация по проекту",
+        "param": {
+            "customer": "Заказчик",
+            "project_horizon": "Целевой горизонт"
+        },
+        "class": "Основные данные"
+    },
+    {
+        "table": "project_well_construction",
+        "description": "Проект конструкции скважины",
+        "param": {
+            "casing_column": "Тип обсадной колонны",
+            "open_hole_diameter": "Диаметр ствола (мм)"
+        },
+        "class": "Конструкция"
+    },
+    {
+        "table": "project_drilling_mode",
+        "description": "Режимы бурения по проекту",
+        "param": {
+            "axial_load": "Осевая нагрузка (тс)",
+            "rotating_frequency": "Частота вращения (об/мин)"
+        },
+        "class": "Режимы бурения"
+    },
+    {
+        "table": "project_possible_complication",
+        "description": "Возможные осложнения",
+        "param": {
+            "interval_from/to": "Интервал риска (м)",
+            "risk_type": "Тип риска"
+        },
+        "class": "Риски"
+    },
+    {
+        "table": "project_chisel_program",
+        "description": "Программа работы долот",
+        "param": {
+            "bit_code": "Код долота",
+            "mechanical_drilling_speed": "Механическая скорость (м/ч)"
+        },
+        "class": "Инструмент"
+    },
+    {
+        "table": "project_knbk",
+        "description": "Проектные КНБК",
+        "param": {
+            "outer_diameter": "Наружный диаметр (мм)",
+            "reference_knbk_number": "Эталонный номер КНБК"
+        },
+        "class": "Инструмент"
+    },
+    {
+        "table": "project_liquors_plan",
+        "description": "Параметры буровых растворов",
+        "param": {
+            "density_min/max": "Плотность (г/см³)",
+            "filtration": "Фильтрация (мл/30 мин)"
+        },
+        "class": "Буровые растворы"
+    },
+    {
+        "table": "project_pressure_gradients_by_section",
+        "description": "Градиенты давления по интервалам",
+        "param": {
+            "interval_from/to": "Интервал (м)",
+            "fracture_gradients": "Градиент трещиноватости"
+        },
+        "class": "Геомеханика"
+    },
+    {
+        "table": "work_of_special_technic",
+        "description": "Работа спецтехники по проекту",
+        "param": {
+            "vehicle_name": "Тип техники",
+            "total_quantity": "Общее количество"
+        },
+        "class": "Логистика"
+    },
+    {
+        "table": "users",
+        "description": "Пользователи системы",
+        "param": {
+            "username": "Логин",
+            "role_old": "Роль (устаревшее)",
+            "organization": "Организация"
+        },
+        "class": "Управление доступом"
+    },
+    {
+        "table": "permissions",
+        "description": "Права доступа",
+        "param": {
+            "code": "Код права",
+            "group_title": "Группа прав"
+        },
+        "class": "Управление доступом"
+    },
+    {
+        "table": "user_permissions",
+        "description": "Назначение прав пользователям",
+        "param": {
+            "user_id": "ID пользователя",
+            "permission_code": "Код права"
+        },
+        "class": "Управление доступом"
+    },
+    {
+        "table": "user_settings",
+        "description": "Персональные настройки",
+        "param": {
+            "user_id": "ID пользователя",
+            "data": "Данные настроек (JSON)"
+        },
+        "class": "Конфигурация"
+    },
+    {
+        "table": "nci_casing_column_names",
+        "description": "Наименования обсадных колонн",
+        "param": {
+            "value": "Название (кондуктор, эксплуатационная и т.д.)",
+            "order": "Порядковый номер"
+        },
+        "class": "Конструкция скважин"
+    },
+    {
+        "table": "nci_work_types",
+        "description": "Типы работ",
+        "param": {
+            "key": "Код",
+            "value": "Наименование",
+            "is_show_in_risk_map": "Отображение в карте рисков"
+        },
+        "class": "Классификатор"
+    },
+    {
+        "table": "nci_operation_flags",
+        "description": "Флаги операций",
+        "param": {
+            "key": "Код",
+            "value": "Описание"
+        },
+        "class": "Маркеры"
+    },
+    {
+        "table": "nci_drilling_rig_type",
+        "description": "Типы буровых установок",
+        "param": {
+            "value": "Наименование",
+            "order": "Порядок сортировки"
+        },
+        "class": "Оборудование"
+    },
+    {
+        "table": "nci_bit_type",
+        "description": "Типы долот",
+        "param": {
+            "value": "Наименование (PDC, шарошечное)"
+        },
+        "class": "Инструмент"
+    },
+    {
+        "table": "nci_threaded_connection_type",
+        "description": "Типы резьбовых соединений",
+        "param": {
+            "value": "Наименование"
+        },
+        "class": "Комплектующие"
+    },
+    {
+        "table": "nci_contractor",
+        "description": "Подрядные организации",
+        "param": {
+            "value": "Наименование"
+        },
+        "class": "Контрагенты"
+    },
+    {
+        "table": "nci_employee_position",
+        "description": "Должности сотрудников",
+        "param": {
+            "value": "Наименование"
+        },
+        "class": "Персонал"
+    },
+    {
+        "table": "nci_service_type",
+        "description": "Типы сервисных услуг",
+        "param": {
+            "code": "Код услуги",
+            "title": "Наименование"
+        },
+        "class": "Сервисы"
+    },
+    {
+        "table": "nci_construction_cycle",
+        "description": "Циклы строительства скважин",
+        "param": {
+            "value": "Наименование",
+            "type": "Тип (бурение, крепление)"
+        },
+        "class": "Техпроцессы"
+    },
+    {
+        "table": "nci_well_construction_stages",
+        "description": "Этапы строительства скважин",
+        "param": {
+            "value": "Наименование"
+        },
+        "class": "Техпроцессы"
+    },
+    {
+        "table": "nci_well_completion_operation_types",
+        "description": "Типы операций по завершению скважин",
+        "param": {
+            "value": "Наименование"
+        },
+        "class": "Завершение"
+    },
+    {
+        "table": "flyway_schema_history",
+        "description": "История миграций базы данных",
+        "param": {
+            "script": "Имя скрипта",
+            "checksum": "Контрольная сумма"
+        },
+        "class": "Системные"
+    },
+    {
+        "table": "tasks",
+        "description": "Фоновые задачи системы",
+        "param": {
+            "status": "Статус выполнения",
+            "payload": "Данные задачи"
+        },
+        "class": "Системные"
+    },
+    {
+        "table": "file_logos",
+        "description": "Логотипы организаций",
+        "param": {
+            "file_code": "Код файла",
+            "content": "Бинарные данные"
+        },
+        "class": "Медиа"
+    },
+    {
+        "table": "files",
+        "description": "Файловое хранилище документов",
+        "param": {
+            "original_filename": "Исходное имя файла",
+            "file_size": "Размер (байты)",
+            "document_date": "Дата документа",
+            "group_id": "Группа файлов"
+        },
+        "class": "Документооборот"
+    },
+    {
+        "table": "file_tags",
+        "description": "Теги для классификации файлов",
+        "param": {
+            "title": "Название тега",
+            "well_id": "Привязка к скважине (опционально)"
+        },
+        "class": "Методанные"
+    },
+    {
+        "table": "file_tag_links",
+        "description": "Связи файлов с тегами",
+        "param": {
+            "file_id": "ID файла",
+            "tag_id": "ID тега"
+        },
+        "class": "Методанные"
+    },
+    {
+        "table": "file_subgroups",
+        "description": "Подгруппы файлов",
+        "param": {
+            "title": "Название подгруппы",
+            "has_plan_fact": "Флаг плановых/фактических данных"
+        },
+        "class": "Классификация"
+    },
+    {
+        "table": "tasks",
+        "description": "Фоновые задачи системы",
+        "param": {
+            "payload": "Данные задачи (JSON)",
+            "status": "Статус (в работе/завершено)",
+            "retry_count": "Количество попыток выполнения"
+        },
+        "class": "Автоматизация"
+    },
+    {
+        "table": "schedulers",
+        "description": "Планировщики заданий",
+        "param": {
+            "root_id": "Корневой элемент расписания"
+        },
+        "class": "Планирование"
+    },
+    {
+        "table": "scheduler_items",
+        "description": "Элементы расписаний",
+        "param": {
+            "title": "Название элемента",
+            "type": "Тип (задача/группа)",
+            "data": "Параметры (JSON)"
+        },
+        "class": "Планирование"
+    },
+    {
+        "table": "scheduler_events",
+        "description": "События планировщика",
+        "param": {
+            "date_from/to": "Период действия",
+            "status": "Статус (активно/отменено)"
+        },
+        "class": "Планирование"
+    },
+    {
+        "table": "keycloak_events",
+        "description": "События аутентификации (Keycloak)",
+        "param": {
+            "type": "Тип события (логин/логаут)",
+            "ip_address": "IP-адрес",
+            "error": "Флаг ошибки"
+        },
+        "class": "Безопасность"
+    },
+    {
+        "table": "keycloak_admin_events",
+        "description": "Административные события Keycloak",
+        "param": {
+            "operation_type": "Тип операции",
+            "resource_path": "Путь к ресурсу"
+        },
+        "class": "Аудит"
+    },
+    {
+        "table": "mapping_price_by_work_operation",
+        "description": "Сопоставление работ и цен",
+        "param": {
+            "work_type": "Тип работы",
+            "price_service_code": "Код услуги в прайсе"
+        },
+        "class": "Интеграция"
+    }
+]
