@@ -5,10 +5,10 @@ import pandas as pd
 
 model = SentenceTransformer('cointegrated/rubert-tiny2')
 
-df = pd.read_csv('tables_with_descrp.csv')
+df = pd.read_csv('data/tables_with_descrp.csv')
 documents = df.description.to_list()
 
-loaded_embeddings = np.load('/Users/timursaitbatalov/Desktop/AI_Drillig/document_embeddings.npy')
+loaded_embeddings = np.load('data/document_embeddings.npy')
 faiss.normalize_L2(loaded_embeddings)
 
 dimension = loaded_embeddings.shape[1]

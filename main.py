@@ -6,18 +6,34 @@ from vectorizer import semantic_search
 import pandas as pd
 import os
 from dotenv import load_dotenv 
+import psycopg2
+from psycopg2.extras import RealDictCursor
+
+
 load_dotenv()
 
-
-with open('tables_3.json', 'r', encoding='utf-8') as file:
-    data = json.load(file)
-for i in range(len(data)):
-    data[i] = str(data[i])
-
-# table_embeddings = create_table_embeddings(data)
-print(os.environ.get("API_LLAMA"))
 client = Together(api_key=os.environ.get("API_LLAMA"))
 
+def execute_sql_query(conn, query):
+    """
+    Выполняет SQL-запрос в PostgreSQL и возвращает результаты
+    """
+    try:
+        with conn.cursor(cursor_factory=RealDictCursor) as cursor:
+            cursor.execute(query)
+            
+            # Для SELECT запросов возвращаем результаты
+            if query.strip().upper().startswith('SELECT'):
+                results = cursor.fetchall()
+                return results
+            # Для других запросов (INSERT, UPDATE и т.д.) возвращаем статус
+            else:
+                conn.commit()
+                return {"status": "success", "rows_affected": cursor.rowcount}
+                
+    except Exception as e:
+        # В случае ошибки возвращаем сообщение об ошибке
+        return {"status": "error", "message": str(e)}
 
 def get_request(user_query, tables, history=None):
     prompt = """
@@ -66,33 +82,12 @@ def chat_interface(user_input, history=None):
 
     # Подключение к базе данных
     conn = init_db()
-    tables = get_table_names(conn)
 
-
-    # user_query = "Покажи данные о users"
-    # relevant_tables = find_relevant_tables(user_input, table_embeddings)
-    # print("Релевантные таблицы:", relevant_tables)
-    # Обработка запроса пользователя
     response, history = get_request(user_input, semantic_search(user_input))
-    # Закрытие соединения
-    # sql_query, history = get_request(user_input, relevant_tables, history)
-    
-    # Выполняем запрос с проверкой
-    # result, error = execute_query(sql_query)
-    return response
-    # if error:
-    #     return f"Ошибка: {error}"
-    # else:
-    #     # Форматируем результат для вывода
-    #     if isinstance(result, dict):  # Для SELECT запросов
-    #         columns = result['columns']
-    #         data = result['data']
-    #         output = " | ".join(columns) + "\n" + "-"*50 + "\n"
-    #         for row in data:
-    #             output += " | ".join(str(item) for item in row) + "\n"
-    #         return output, history
-    #     else:  # Для других запросов
-    #         return result
+
+    db_results = execute_sql_query(conn, response)
+
+    return str(db_results)
 
 
 # Запрос пользователя
@@ -108,23 +103,3 @@ iface = gr.ChatInterface(
 
 # Запуск интерфейса
 iface.launch()
-
-conn = init_db()
-tables = get_table_names(conn)
-
-# prom = ''
-# new_prom = []
-# for table in tables:
-#     new_prom.append(f'{table}: {get_column_names(conn, table)}') 
-#     prom += f"- Таблица: {table}, Столбцы: {get_column_names(conn, table)}\n"
-# print(new_prom)
-history = None
-# while True:
-#     query = str(input())
-#     user_query = "Покажи данные о users"
-#     relevant_tables = find_relevant_tables(query, table_embeddings)
-#     print("Релевантные таблицы:", relevant_tables)
-    # resp, history = get_request(query, prom)
-    # print(resp)
-    # print(execute_query(conn, resp))
-    
