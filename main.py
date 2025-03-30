@@ -16,24 +16,36 @@ client = Together(api_key=os.environ.get("API_LLAMA"))
 
 def execute_sql_query(conn, query):
     """
-    Выполняет SQL-запрос в PostgreSQL и возвращает результаты
+    Выполняет SQL-запрос в PostgreSQL и возвращает результаты с названиями столбцов
     """
     try:
         with conn.cursor(cursor_factory=RealDictCursor) as cursor:
             cursor.execute(query)
             
-            # Для SELECT запросов возвращаем результаты
+            # Получаем названия столбцов
+            column_names = [desc[0] for desc in cursor.description] if cursor.description else []
+            
             if query.strip().upper().startswith('SELECT'):
                 results = cursor.fetchall()
-                return results
-            # Для других запросов (INSERT, UPDATE и т.д.) возвращаем статус
+                return {
+                    "columns": column_names,
+                    "data": results,
+                    "status": "success"
+                }
             else:
                 conn.commit()
-                return {"status": "success", "rows_affected": cursor.rowcount}
+                return {
+                    "status": "success",
+                    "rows_affected": cursor.rowcount,
+                    "columns": column_names  # Для не-SELECT запросов
+                }
                 
     except Exception as e:
-        # В случае ошибки возвращаем сообщение об ошибке
-        return {"status": "error", "message": str(e)}
+        return {
+            "status": "error",
+            "message": str(e),
+            "columns": []
+        }
 
 def get_request(user_query, tables, history=None):
     prompt = """
