@@ -73,13 +73,13 @@ def chat_interface(user_input, history=None):
     # relevant_tables = find_relevant_tables(user_input, table_embeddings)
     # print("Релевантные таблицы:", relevant_tables)
     # Обработка запроса пользователя
-    # response = get_request(user_input, tables)
+    response, history = get_request(user_input, semantic_search(user_input))
     # Закрытие соединения
     # sql_query, history = get_request(user_input, relevant_tables, history)
     
     # Выполняем запрос с проверкой
     # result, error = execute_query(sql_query)
-    return str(semantic_search(user_input))
+    return response
     # if error:
     #     return f"Ошибка: {error}"
     # else:
