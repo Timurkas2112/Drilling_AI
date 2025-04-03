@@ -30,9 +30,11 @@ def semantic_search(query, top_k=20):
     #         "score": distances[0][i]
     #     })
     results = []
+    docs = ''
     for i in range(top_k):
         results.append(df.iloc[int(indices[0][i])].tables)
-    return results
+        docs = docs + '\n' + documents[indices[0][i]]
+    return results, docs
 
 # query = "Какие бригады работают в скважине №20?"
 # results = semantic_search(query)

@@ -1,4 +1,7 @@
+import os
+from dotenv import load_dotenv
 import psycopg2
+load_dotenv()
 
 def get_table_names(conn):
     """
@@ -37,7 +40,7 @@ def get_column_names(conn, table_name):
 
 def init_db():
     try:
-        conn = psycopg2.connect('postgresql://postgres:1234@localhost:5433/postgres')
+        conn = psycopg2.connect(os.getenv("DATABASE_URL"))
         return conn
     except psycopg2.Error as e:
         return f"Ошибка при подключении к базе данных: {e}"

@@ -95,11 +95,15 @@ def chat_interface(user_input, history=None):
     # Подключение к базе данных
     conn = init_db()
 
-    response, history = get_request(user_input, semantic_search(user_input))
+    search, docs = semantic_search(user_input)
+
+    response, history = get_request(user_input, search)
 
     db_results = execute_sql_query(conn, response)
 
-    return str(db_results)
+    answer = f"{response}\n{db_results}"
+
+    return str(answer)
 
 
 # Запрос пользователя
