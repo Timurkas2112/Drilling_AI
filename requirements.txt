@@ -1,0 +1,8 @@
+together==1.4.6
+gradio==5.22.0
+dotenv==0.9.9
+pandas==2.2.1
+psycopg2-binary==2.9.10
+faiss-cpu==1.10.0
+sentence-transformers==3.4.1
+numpy==1.26.4
