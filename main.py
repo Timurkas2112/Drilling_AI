@@ -8,9 +8,11 @@ import os
 from dotenv import load_dotenv 
 import psycopg2
 from psycopg2.extras import RealDictCursor
-
-
+from client import send_message, fetch_messages
+import requests
+import time
 load_dotenv()
+SERVER_URL = "http://localhost:5000/api"
 
 client = Together(api_key=os.environ.get("API_LLAMA"))
 
@@ -43,8 +45,7 @@ def execute_sql_query(conn, query):
     except Exception as e:
         return {
             "status": "error",
-            "message": str(e),
-            "columns": []
+            "message": str(e)
         }
 
 def get_request(user_query, tables, history=None):
@@ -89,33 +90,43 @@ def get_request(user_query, tables, history=None):
 
     return sql_query, history
 
+def process_query():
+    """Проверяет и обрабатывает новые сообщения"""
+    while True:
+        try:
+            # Получаем только непроцессированные пользовательские сообщения
+            response = requests.get(f"{SERVER_URL}/messages")
+            unprocessed = [msg for msg in response.json().get("messages", []) 
+                         if msg["sender"] == "user" and not msg.get("processed", False)]
+            
+            if unprocessed:
+                latest_msg = unprocessed[-1]
+                user_input = latest_msg["text"]
+                
+                # Обработка SQL-запроса
+                conn = init_db()
+                search, docs = semantic_search(user_input)
+                sql_query, _ = get_request(user_input, search)
+                db_results = execute_sql_query(conn, sql_query)
+                answer = f"SQL: {sql_query}\nResults: {json.dumps(db_results, indent=2)}"
+                
+                # Отправляем ответ
+                requests.post(
+                    f"{SERVER_URL}/send",
+                    json={"text": answer, "sender": "client"},
+                    headers={"Content-Type": "application/json"}
+                )
+                
+                # Помечаем сообщение как обработанное
+                requests.post(
+                    f"{SERVER_URL}/mark_processed/{latest_msg['id']}"
+                )
+                
+        except Exception as e:
+            print(f"Ошибка: {e}")
+        
+        time.sleep(1)  # Проверяем каждую секунду
 
-def chat_interface(user_input, history=None):
-
-    # Подключение к базе данных
-    conn = init_db()
-
-    search, docs = semantic_search(user_input)
-
-    response, history = get_request(user_input, search)
-
-    db_results = execute_sql_query(conn, response)
-
-    answer = f"{response}\n{db_results}"
-
-    return str(answer)
-
-
-# Запрос пользователя
-user_query = "Выведи информацию о завершении скважин за ноябрь 2024 года"
-
-
-# Создание интерфейса с помощью Gradio
-iface = gr.ChatInterface(
-    fn=chat_interface,
-    title="Чат с моделью для работы с базой данных",
-    description="Задавайте вопросы, и модель поможет вам сформировать SQL-запросы."
-)
-
-# Запуск интерфейса
-iface.launch()
+if __name__ == "__main__":
+    print("SQL-ассистент запущен...")
+    process_query()
