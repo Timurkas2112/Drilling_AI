@@ -1,0 +1,17 @@
+services:
+  service:
+    container_name: service
+    build:
+      context: .
+      dockerfile: Dockerfile
+    restart: always
+    env_file:
+      - .env
+    ports:
+      - "7860:7860"
+    networks:
+      - report-network
+
+networks:
+  report-network:
+    driver: bridge
