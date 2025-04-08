@@ -11,7 +11,8 @@ from psycopg2.extras import RealDictCursor
 import requests
 import time
 load_dotenv()
-SERVER_URL = "http://localhost:5000/api"
+print("TEST!")
+SERVER_URL = os.environ.get("SERVER_URL")
 
 client = Together(api_key=os.environ.get("API_LLAMA"))
 
