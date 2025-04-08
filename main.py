@@ -8,7 +8,6 @@ import os
 from dotenv import load_dotenv 
 import psycopg2
 from psycopg2.extras import RealDictCursor
-from client import send_message, fetch_messages
 import requests
 import time
 load_dotenv()
