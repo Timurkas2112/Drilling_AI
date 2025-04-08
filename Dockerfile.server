@@ -1,0 +1,10 @@
+FROM python:3.11-slim
+
+WORKDIR /app
+
+COPY server.py ./
+COPY static ./static
+
+RUN pip install flask flask-cors
+
+CMD ["python3", "server.py"]
