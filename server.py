@@ -2,11 +2,24 @@ from flask import Flask, request, jsonify, send_from_directory
 from flask_cors import CORS
 from uuid import uuid4
 from datetime import datetime
+from db import init_db
+from vectorizer import semantic_search
+from main import get_request, execute_sql_query
+import json
 
 app = Flask(__name__)
 CORS(app)
 
 messages = []
+
+def get_sql(user_input):
+    conn = init_db()
+    search, docs = semantic_search(user_input)
+    sql_query, _ = get_request(user_input, search)
+    db_results = execute_sql_query(conn, sql_query)
+    answer = f"SQL: {sql_query}\nResults: {json.dumps(db_results, indent=2)}"
+    return answer
+
 
 @app.route('/')
 def home():
@@ -39,5 +52,20 @@ def mark_processed(message_id):
             return jsonify({"status": "OK"})
     return jsonify({"error": "Message not found"}), 404
 
+@app.route('/api/external/send', methods=['POST'])
+def external_send():
+    data = request.json
+    if 'text' in data and data['text'].strip():
+        # Обрабатываем сообщение функцией x
+        result = get_sql(data['text'])
+        
+        # Возвращаем только результат, не сохраняя в общий чат
+        return jsonify({
+            "status": "OK",
+            "original_text": data['text'],
+            "processed_result": result,
+            "timestamp": datetime.now().strftime("%H:%M:%S")
+        })
+    return jsonify({"error": "Empty message"}), 400
 if __name__ == '__main__':
     app.run(host='0.0.0.0', port=5000, debug=True)
