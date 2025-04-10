@@ -2,9 +2,15 @@ FROM python:3.11-slim
 
 WORKDIR /app
 
-COPY server.py ./
-COPY static ./static
+COPY requirements.txt ./
+RUN pip install --no-cache-dir -r requirements.txt
 
-RUN pip install flask flask-cors
+# Устанавливаем обязательные пакеты
+RUN pip install flask flask-cors python-dotenv
+RUN pip install hf_xet
+
+COPY .env .
+COPY . .
+
 
 CMD ["python3", "server.py"]

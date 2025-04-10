@@ -1,18 +1,18 @@
 services:
-  assistant:
-    container_name: assistant
-    build:
-      context: .
-      dockerfile: Dockerfile.assistant
-    restart: always
-    env_file:
-      - .env
-    environment:
-      - SERVER_URL=http://server:5000/api
-    networks:
-      - report-network
-    depends_on:
-      - server
+  # assistant:
+  #   container_name: assistant
+  #   build:
+  #     context: .
+  #     dockerfile: Dockerfile.assistant
+  #   restart: always
+  #   env_file:
+  #     - .env
+  #   environment:
+  #     - SERVER_URL=http://server:5000/api
+  #   networks:
+  #     - report-network
+  #   depends_on:
+  #     - server
 
   server:
     container_name: server
