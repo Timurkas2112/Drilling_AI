@@ -38,9 +38,5 @@ def semantic_search(query, top_k=20):
 
 # query = "Какие бригады работают в скважине №20?"
 # results = semantic_search(query)
-
-# print(f"Результаты для '{query}':")
-# for i, res in enumerate(results, 1):
-
-#     print(f"{i}. [Индекс: {res['index']}] {res['document']} (сходство: {res['score']:.4f})")
+# print (results)
 
