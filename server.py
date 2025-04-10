@@ -2,7 +2,7 @@ from flask import Flask, request, jsonify, send_from_directory
 from flask_cors import CORS
 from uuid import uuid4
 from datetime import datetime
-from db import init_db
+from db import init_db, get_table_names, get_column_names
 from vectorizer import semantic_search
 from main import get_request, execute_sql_query
 import json
