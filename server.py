@@ -17,7 +17,7 @@ def get_sql(user_input):
     search, docs = semantic_search(user_input)
     sql_query, _ = get_request(user_input, search)
     db_results = execute_sql_query(conn, sql_query)
-    answer = f"SQL: {sql_query}\nResults: {json.dumps(db_results, indent=2)}"
+    answer = f"SQL: {sql_query} /sql \nResults: {json.dumps(db_results, indent=2)}"
     return answer
 
 
